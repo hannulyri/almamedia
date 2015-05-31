@@ -58,7 +58,8 @@
                 "messages": {
                     "success": "<strong>Mainos lisätty!</strong>",
                     "error": {
-                        "fail": "<strong>Mainosta ei lisätty!</strong> Tarkista lomake ja yritä uudelleen."
+                        "fail": "<strong>Mainosta ei lisätty!</strong> Tarkista lomake ja yritä uudelleen.",
+                        "wrongimage": "Vain JPG-kuvat sallittu."
                     }
                 }
             },

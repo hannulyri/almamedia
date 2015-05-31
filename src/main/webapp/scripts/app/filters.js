@@ -24,7 +24,6 @@ angular.module('almamediaApp')
 })
 .filter('currencyF', function(Math10) {     
      return function(number) {
-        console.log(number);
             var numberToReturn;
             var numberToBeDivided = Math10.round10(parseFloat(number/100), -2);
             var numberPieces = String(numberToBeDivided).split('.');

@@ -65,7 +65,8 @@
                 "messages": {
                     "success": "<strong>Marketad added!</strong>",
                     "error": {
-                        "fail": "<strong>Adding Marketad failed!</strong> Please check your input and try again."
+                        "fail": "<strong>Adding Marketad failed!</strong> Please check your input and try again.",
+                        "wrongimage": "Only JPG-images allowed."
                     }
                 }
             },

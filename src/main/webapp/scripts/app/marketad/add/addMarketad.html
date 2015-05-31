@@ -118,7 +118,9 @@
                     <div class="col-sm-9">
                     	<div class="panel panel-smart">
 							<div class="button btn btn-red" ngf-select ng-model="files" ngf-multiple="multiple"><span translate="global.addmarketad.form.button.image">Add Image</span></div>
-							<img ng-show="resizedImage" ng-src="{{resizedImage}}" class="img-responsive" />             							
+							<img ng-show="resizedImage" ng-src="{{resizedImage}}" class="img-responsive" />
+              <br/>
+							<div ng-show="wrongimage" class="alert alert-danger" translate="global.addmarketad.messages.error.wrongimage">Only JPG-images allowed.</div>         							
 						</div>
                     </div>
                 </div>    

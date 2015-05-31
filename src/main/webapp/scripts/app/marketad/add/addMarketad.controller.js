@@ -5,12 +5,14 @@ angular.module('almamediaApp')
 		$scope.files = {};
 		$scope.originalImage = null;
 		$scope.resizedImage = null;
+		$scope.wrongimage = null;
 		
 	    $scope.$watch('files', function () {
 	    	$scope.upload($scope.files);
 	    });   
 
 	    $scope.upload = function (files) {
+	    	$scope.wrongimage = null;
 	        if (files && files.length) {
 	            for (var i = 0; i < files.length; i++) {
 	                var file = files[i];
@@ -22,6 +24,9 @@ angular.module('almamediaApp')
 	                    var progressPercentage = parseInt(100.0 * evt.loaded / evt.total);
 	                    //$scope.log = 'progress: ' + progressPercentage + '% ' + evt.config.file.name + '\n' + $scope.log;
 	                }).success(function (data, status, headers, config) {
+	                	if (!data.status) {
+	                		$scope.wrongimage = true;
+	                	}
 	                	$scope.originalImage = data.imageUrl;
 	                	$scope.resizedImage = data.thumbnailUrl;
 	                    //$scope.log = 'file ' + config.file.name + 'uploaded. Response: ' + JSON.stringify(data) + '\n' + $scope.log;
