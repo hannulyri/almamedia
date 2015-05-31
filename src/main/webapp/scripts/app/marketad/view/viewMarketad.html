@@ -1,0 +1,58 @@
+<!-- NotFound Starts -->
+<div ng-switch on="marketad.notFound">
+  <div ng-switch-when="true"><div ng-include="'scripts/app/404/pageNotFound.html'"></div></div>
+  <div ng-switch-when="false">
+
+    <!-- Product Info Starts -->
+      <div class="product-info full">
+      <!-- Left Starts -->
+        <div class="col-sm-4 images-block">
+          <a ng-show="marketad.imageId" ui-sref="viewimage({ id: marketad.imageId })">
+            <img ng-src="{{marketad.thumbnailUrl}}" alt="{{marketad.title}}" class="img-responsive thumbnail" />
+          </a>
+          <span ng-show="!marketad.imageId" translate="global.viewmarketad.messages.noimage">No image available.</span>
+        </div>
+      <!-- Left Ends -->
+      <!-- Right Starts -->
+        <div class="col-sm-8 product-details">
+          <div class="panel-smart">
+          <!-- Product Name Starts -->
+            <h2>{{marketad.title}}</h2>
+          <!-- Product Name Ends -->
+            <hr />            
+          <!-- Price Starts -->
+            <div class="price">
+              <span class="price-n-label" translate="global.viewmarketad.form.price">Price:</span>
+              <span id="marketad-price" class="price-n-price">{{ marketad.priceCents | currencyF }}</span>€
+            </div>
+          <!-- Price Ends -->            
+          <!-- Manufacturer Starts -->
+            <ul class="list-unstyled manufacturer">
+              <li>
+                <span translate="global.viewmarketad.form.email">Email:</span> <span class="email"><a href="mailto:{{marketad.email}}">{{marketad.email}}</a></span>
+              </li>
+              <li>
+                <span translate="global.viewmarketad.form.phone">Phone:</span> {{marketad.phone}}
+              </li>
+            </ul>
+          <!-- Manufacturer Ends -->
+            <hr />
+            <span class="description" ng-bind-html="marketad.description | htmlToPlaintext | linky | nl2br"></span>
+            <hr />
+            <button type="submit" class="btn btn-black" ng-show="!deleteYesNo" ng-click="toggleYesNo()" translate="global.viewmarketad.form.button.delete">Delete Marketad</button>
+            <div ng-show="deleteYesNo">
+              <br/>
+              <div translate="global.viewmarketad.messages.deletemarketad">Do you want to delete Marketad?</div>
+              <br/>
+              <button type="submit" class="btn btn-black" ng-click="toggleYesNo()" translate="global.viewmarketad.form.button.no">No</button>
+              <button type="submit" class="btn btn-red" ng-click="delete(marketad.id)" translate="global.viewmarketad.form.button.yes">Yes</button>
+
+            </div>
+          </div>
+        </div>
+      <!-- Right Ends -->
+      </div>
+    <!-- Product Info Ends --> 
+
+  </div>
+  <!-- NotFound Ends -->

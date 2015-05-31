@@ -1,0 +1,41 @@
+      <!-- nav-wrapper Starts -->
+        <div class="nav-wrapper">        
+        <!-- Main Menu Starts -->
+            <nav id="main-menu" class="navbar navbar-inverse" role="navigation">
+            <!-- Nav Header Starts -->
+                <div class="navbar-header">
+                    <button type="button" class="btn btn-navbar navbar-toggle" data-toggle="collapse" data-target=".navbar-cat-collapse">
+                        <span class="sr-only">Toggle Navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                </div>
+            <!-- Nav Header Ends -->
+            <!-- Navbar Cat collapse Starts -->
+                <div class="collapse navbar-collapse navbar-cat-collapse navbar-w">
+                    <ul class="nav navbar-nav">
+                        <li ui-sref-active="active" ng-cloak><a ui-sref="home" translate="global.menu.home">Home</a></li>
+                        <li ui-sref-active="active" ng-cloak><a ui-sref="addmarketad" translate="global.menu.addad">Add ad</a></li>                        
+                        <!-- Language Starts -->                        
+                        <li ui-sref-active="active" class="dropdown pointer lang-option" ng-controller="LanguageController" ng-cloak>
+                            <a class="dropdown-toggle" data-toggle="dropdown" href="">
+                                        <span>
+                                            <span class="hidden-tablet" translate="global.menu.language">{{languagesCurrent | uppercase}}</span>
+                                            <b class="caret"></b>
+                                        </span>
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li active-menu="{{language}}" ng-repeat="language in languages">
+                                    <a href="" id="lang-{{language}}" ng-click="changeLanguage(language)">{{'language.' + language| translate}} {{language | uppercase}}</a>
+                                </li>
+                            </ul>
+                        </li> 
+                        <!-- Language Ends -->                        
+                    </ul>
+                </div>
+            <!-- Navbar Cat collapse Ends -->
+            </nav>
+        <!-- Main Menu Ends -->
+        </div>
+        <!-- nav-wrapper Ends -->

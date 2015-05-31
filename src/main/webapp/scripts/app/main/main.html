@@ -1,0 +1,28 @@
+        <!-- Main Heading Starts -->
+            <h2 class="main-heading text-center" translate="global.main.title">Marketads</h2>
+        <!-- Main Heading Ends -->
+                <!-- Product List Display Starts 
+                    <div class="row">
+                        -->
+                    <!-- Product #1 Starts -->
+                        <div id="ad{{$index}}" class="col-xs-12" ng-repeat="ad in marketAds" on-last-repeat>
+                            <div class="product-col list clearfix">
+                                <div class="image">
+                                    <a ui-sref="viewmarketad({ id: ad.id, pos: $index })"><img ng-src="{{ad.thumbnailUrl}}" class="img-responsive" /></a>                                    
+                                </div>
+                                <div class="caption">
+                                    <h4><a ui-sref="viewmarketad({ id: ad.id, pos: $index })">{{ad.title}}</a></h4>                                    
+                                    <div class="description"><a ui-sref="viewmarketad({ id: ad.id, pos: $index })"><span ng-bind-html="ad.description | htmlToPlaintext | shortenDesc | linky"></span></a></div>
+                                    <div class="price">
+                                        <span class="price-new" translate="global.viewmarketad.form.price">Price:</span> 
+                                        <span class="price-new">{{ ad.priceCents | currencyF }} €</span> 
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    <!-- Product #1 Ends -->
+
+                <!--     </div>
+                Product List Display Ends -->
+        </div>
+    <!-- Main Container Ends -->

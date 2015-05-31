@@ -1,0 +1,19 @@
+{
+  "generator-jhipster": {
+    "baseName": "almamedia",
+    "packageName": "fi.hmp.almamedia",
+    "packageFolder": "fi/hmp/almamedia",
+    "authenticationType": "xauth",
+    "hibernateCache": "no",
+    "clusteredHttpSession": "no",
+    "websocket": "no",
+    "databaseType": "sql",
+    "devDatabaseType": "mysql",
+    "prodDatabaseType": "mysql",
+    "useCompass": true,
+    "buildTool": "maven",
+    "frontendBuilder": "grunt",
+    "javaVersion": "7",
+    "rememberMeKey": "d63cf9da46bdf65e7e54b47c5a37dc4ac81556ff"
+  }
+}

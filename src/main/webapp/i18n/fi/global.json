@@ -1,0 +1,121 @@
+{
+    "global": {
+        "title": "Almamedia",  
+        "browsehappy": "Käytät <strong>vanhentunutta</strong> selainta. Ole hyvä ja <a href=\"http://browsehappy.com/?locale=en\">päivitä selaimesi</a> parantaaksesi käyttökokemustasi.",
+        "menu": {
+            "home": "Koti",
+            "addad": "Lisää mainos",
+            "language": "Kieli"
+        },
+        "form": {
+            "title": "Otsikko",
+            "title.placeholder": "Kirjoita otsikko",
+            "description": "Kuvaus",
+            "description.placeholder": "Kirjoita kuvaus",            
+            "priceCents": "Hinta",
+            "priceCents.placeholder": "Kirjoita hinta",                                                          
+            "email": "Sähköposti",
+            "email.placeholder": "Kirjoita sähköposti",
+            "phone": "Puhelinnumero",
+            "phone.placeholder": "Kirjoita Puhelinnumero",
+            "image": "Kuva"
+        },
+        "messages": {
+            "validate": {
+                "title": {
+                    "required": "Otsikko on pakollinen."
+                }, 
+                "description": {
+                    "required": "Kuvaus on pakollinen."
+                },        
+                "priceCents": {
+                    "required": "Hinta on pakollinen.",
+                    "pattern": "Hinnan tulee olla numero.",
+                    "ngMin": "Hinnan minimi on 0.",
+                    "ngMax": "Hinnan yläraja on 100000."
+                },                                                                  
+                "email": {
+                    "required": "Sähköposti on pakollinen.",
+                    "invalid": "Sähköposti on virheellinen.",
+                    "minlength": "Sähköpostin minimipituus on 5 kirjainta.",
+                    "maxlength": "Sähköpostin maksimipituus on 50 kirjainta."
+                },
+                "phone": {
+                    "required": "Puhelinnumero on pakollinen.",
+                    "pattern": "Puhelinnumero voi sisältää seuraavia merkkejä 0-9, +, -, (, ) ja tyhjää tilaa."
+                }                             
+            }
+        },   
+        "main": {
+                "title": "Mainokset"
+            },             
+        "addmarketad": {
+                "title": "Lisää Mainos",
+                "form": {
+                    "button": "Lisää",
+                    "button.image": "Lisää Kuva"
+                },
+                "messages": {
+                    "success": "<strong>Mainos lisätty!</strong>",
+                    "error": {
+                        "fail": "<strong>Mainosta ei lisätty!</strong> Tarkista lomake ja yritä uudelleen."
+                    }
+                }
+            },
+            "viewmarketad": {
+                    "title": "Katso Mainos",
+                    "form": {
+                        "email": "Sähköposti:",
+                        "phone": "Puhelinnumero:",
+                        "price": "Hinta:",
+                        "button.delete": "Poista Mainos",
+                        "button.yes": "Kyllä",
+                        "button.no": "Ei"                        
+                    },
+                    "messages": {
+                        "noimage": "Ei kuvaa käytettävissä.",
+                        "deletemarketad": "Haluatko poistaa mainoksen?"
+                    }
+                },
+                "viewimage": {
+                        "title": "Katso Kuvaa"
+                },
+                "pagenotfound": {
+                    "title": "Sivua ei löytynyt"   
+                }                                                 
+        },
+    "entity": {
+        "action": {
+            "back": "Takaisin",
+            "cancel": "Peruuta",
+            "delete": "Poista",
+            "edit": "Muokkaa",
+            "save": "Tallenna",
+            "view": "Katso"
+        },
+        "detail": {
+            "field": "Kenttä",
+            "value": "Arvo"
+        },
+        "delete": {
+            "title": "Vahvista poisto"
+        },
+        "validation": {
+            "required": "Pakollinen kenttä.",
+            "minlength": "Kentän minimipituus vähintään {{min}} kirjainta.",
+            "maxlength": "Kenttä ei voi olla pidempi kuin {{max}} kirjainta.",
+            "min": "Tämän pitäisi olla pidempi kuin {{min}} kirjainta.",
+            "max": "Tämä kenttä ei voi olla pidempi kuin {{max}} kirjainta.",
+            "pattern": "Tämän kentän tulisi sisältää seuraavia merkkejä {{pattern}}.",
+            "number": "Kentän tulee sisältää numero.",
+            "datetimelocal": "Kentän tulee sisältää päivänmäärä ja aika."
+        }
+    },
+    "footer": {
+        "contact": "Kontakti"
+    },
+    "language": {
+        "en": "Englanti",
+        "fi": "Suomi"
+    }
+}

@@ -1,0 +1,135 @@
+	<!-- Main Heading Starts -->
+		<h2 class="main-heading text-center" translate="global.addmarketad.title">Add Marketad<</h2>
+	<!-- Main Heading Ends -->
+	<!-- Main Heading Ends -->
+	<!-- Registration Section Starts -->
+		<section class="registration-area">
+				<div class="col-sm-12">
+				<!-- Registration Block Starts -->
+					<div class="panel panel-smart">
+						<div class="panel-body">
+						<!-- Registration Form Starts -->	
+
+            <div class="alert alert-success" ng-show="success" translate="global.addmarketad.messages.success">
+                <strong>Marketad added!</strong>
+            </div>
+
+            <div class="alert alert-danger" ng-show="error" translate="global.addmarketad.messages.error.fail">
+                <strong>Adding Marketad failed!</strong> Please check your input and try again.
+            </div>
+
+            <form ng-show="!success" name="form" role="form" class="form-horizontal" novalidate ng-submit="add()" show-validation>
+
+                <div class="form-group" ng-class="{'has-error': form.title.$invalid && !form.title.$pristine}">
+                    <label class="col-sm-3 control-label" translate="global.form.title">Title</label>
+                    <div class="col-sm-9">
+                    <input type="text" class="form-control" name="title" placeholder="{{'global.form.title.placeholder' | translate}}"
+                           ng-model="addMarketad.title" ng-minlength=1 required>
+                    <div ng-show="form.title.$dirty && form.title.$invalid">
+                        <p class="help-block"
+                               ng-show="form.title.$error.required" translate="global.messages.validate.title.required">
+                               Title is required.
+                        </p>
+                    </div>
+                    </div>
+                </div>
+                <div class="form-group" ng-class="{'has-error': form.description.$invalid && !form.description.$pristine}">
+                    <label class="col-sm-3 control-label" translate="global.form.description">Description</label>
+                    <div class="col-sm-9">
+                    <textarea type="text" class="form-control" name="description" placeholder="{{'global.form.description.placeholder' | translate}}"
+                           ng-model="addMarketad.description" ng-minlength=1 required></textarea>
+                    <div ng-show="form.description.$dirty && form.description.$invalid">
+                        <p class="help-block"
+                               ng-show="form.description.$error.required" translate="global.messages.validate.description.required">
+                               Description is required.
+                        </p>
+                    </div>
+                    </div>
+                </div>  
+                <div class="form-group" ng-class="{'has-error': form.priceCents.$invalid && !form.priceCents.$pristine}">
+                    <label class="col-sm-3 control-label" translate="global.form.priceCents">Price</label>
+                    <div class="col-sm-9">
+                    <input type="text" class="form-control" name="priceCents" placeholder="{{'global.form.priceCents.placeholder' | translate}}"
+                           ng-model="tmpPriceCents" ng-min=0 ng-max=100000 ng-pattern="/^[0-9\.\,]*$/" required>
+                    <div ng-show="form.priceCents.$dirty && form.priceCents.$invalid">
+                        <p class="help-block"
+                               ng-show="form.priceCents.$error.required" translate="global.messages.validate.priceCents.required">
+                               Price is required.
+                        </p>
+                        <p class="help-block"
+                               ng-show="form.priceCents.$error.pattern" translate="global.messages.validate.priceCents.pattern">
+                               Price must be number.
+                        </p>                                               
+                        <p class="help-block"
+                               ng-show="form.priceCents.$error.ngMax" translate="global.messages.validate.priceCents.ngMax">
+                               Price maximum is 100000.
+                        </p>                        
+                        <p class="help-block"
+                               ng-show="form.priceCents.$error.ngMin" translate="global.messages.validate.priceCents.ngMin">
+                               Price minimum is 0.
+                        </p>                              
+                    </div>
+                    </div>
+                </div>
+                <div class="form-group" ng-class="{'has-error': form.email.$invalid && !form.email.$pristine}">
+                    <label class="col-sm-3 control-label" translate="global.form.email">E-mail</label>
+                    <div class="col-sm-9">
+                    <input type="email" class="form-control" name="email" placeholder="{{'global.form.email.placeholder' | translate}}"
+                           ng-model="addMarketad.email" ng-minlength=5 ng-maxlength=50 required>
+                    <div ng-show="form.email.$dirty && form.email.$invalid">
+                        <p class="help-block"
+                               ng-show="form.email.$error.required" translate="global.messages.validate.email.required">
+                            Your e-mail is required.
+                        </p>
+                        <p class="help-block"
+                               ng-show="form.email.$error.email" translate="global.messages.validate.email.invalid">
+                            Your e-mail is invalid.
+                        </p>
+                        <p class="help-block"
+                               ng-show="form.email.$error.minlength" translate="global.messages.validate.email.minlength">
+                            Your e-mail is required to be at least 5 characters
+                        </p>
+                        <p class="help-block"
+                               ng-show="form.email.$error.maxlength" translate="global.messages.validate.email.maxlength">
+                            Your e-mail cannot be longer than 50 characters
+                        </p>
+                    </div>
+                    </div>
+                </div>
+                <div class="form-group" ng-class="{'has-error': form.phone.$invalid && !form.phone.$pristine}">
+                    <label class="col-sm-3 control-label" translate="global.form.phone">Phone</label>
+                    <div class="col-sm-9">
+                    <input type="text" class="form-control" name="phone" placeholder="{{'global.form.phone.placeholder' | translate}}"
+                           ng-model="addMarketad.phone" ng-pattern="/^[0-9+-\\(\\) ]*$/" required>
+                    <div ng-show="form.phone.$dirty && form.phone.$invalid">
+                        <p class="help-block"
+                               ng-show="form.phone.$error.required" translate="global.messages.validate.phone.required">
+                               Phone is required.
+                        </p>
+                        <p class="help-block"
+                               ng-show="form.phone.$error.pattern" translate="global.messages.validate.phone.pattern">
+                               Phone number can contain 0-9, +, -, (, ) and empty space.
+                        </p>                        
+                    </div>
+                    </div>
+                </div> 
+                <div class="form-group">
+                    <label class="col-sm-3 control-label" translate="global.form.image">Image</label>
+                    <div class="col-sm-9">
+                    	<div class="panel panel-smart">
+							<div class="button btn btn-red" ngf-select ng-model="files" ngf-multiple="multiple"><span translate="global.addmarketad.form.button.image">Add Image</span></div>
+							<img ng-show="resizedImage" ng-src="{{resizedImage}}" class="img-responsive" />             							
+						</div>
+                    </div>
+                </div>    
+                <div class="col-sm-offset-3 col-sm-9">                               
+                	<button type="submit" ng-disabled="form.$invalid" class="btn btn-black" translate="global.addmarketad.form.button">Add</button>
+                </div>
+            </form>
+						<!-- Registration Form Ends -->
+						</div>							
+					</div>
+				<!-- Registration Block Ends -->
+				</div>
+		</section>
+	<!-- Registration Section Ends -->
