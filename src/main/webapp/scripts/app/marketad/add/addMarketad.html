@@ -50,16 +50,22 @@
                     <label class="col-sm-3 control-label" translate="global.form.priceCents">Price</label>
                     <div class="col-sm-9">
                     <input type="text" class="form-control" name="priceCents" placeholder="{{'global.form.priceCents.placeholder' | translate}}"
-                           ng-model="tmpPriceCents" ng-min=0 ng-max=100000 ng-pattern="/^[0-9\.\,]*$/" required>
+                           ng-model="tmpPriceCents" ng-min=0 ng-max=100000 allowed-number required>
                     <div ng-show="form.priceCents.$dirty && form.priceCents.$invalid">
                         <p class="help-block"
                                ng-show="form.priceCents.$error.required" translate="global.messages.validate.priceCents.required">
                                Price is required.
                         </p>
+                        <!--
                         <p class="help-block"
                                ng-show="form.priceCents.$error.pattern" translate="global.messages.validate.priceCents.pattern">
                                Price must be number.
-                        </p>                                               
+                        </p>
+                        -->
+                        <p class="help-block"
+                               ng-show="form.priceCents.$error.allowednumber" translate="global.messages.validate.priceCents.allowednumber">
+                               Price must be number in form of xxx OR xxx,xx OR xxx.xx
+                        </p>                                                                           
                         <p class="help-block"
                                ng-show="form.priceCents.$error.ngMax" translate="global.messages.validate.priceCents.ngMax">
                                Price maximum is 100000.

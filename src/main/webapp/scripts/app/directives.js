@@ -71,6 +71,32 @@ angular.module('almamediaApp')
             ctrl.$formatters.push(minValidator);
         }
     };
-});
+})
+.directive('allowedNumber', function(Math10) {
+    return {
+        restrict: 'A',
+        require: 'ngModel',
+        link: function (scope, elem, attr, ctrl) {
 
+            var allowedNumberValidator = function (value) {
+                if (value === undefined)
+                    return;
+                value = value.trim();                
+                var regex = /^[0-9]+([\.|\,][0-9]?[0-9]?)?$/g;
+                
+                if (value.match(regex)) {
+                    ctrl.$setValidity('allowednumber', true);
+                    return value;                    
+                } else {
+                    ctrl.$setValidity('allowednumber', false);
+                    return undefined;
+                }                
+
+            };
+
+            ctrl.$parsers.push(allowedNumberValidator);
+            ctrl.$formatters.push(allowedNumberValidator);
+        }
+    };
+})
 ;

@@ -38,6 +38,7 @@
                 "priceCents": {
                     "required": "Price is required.",
                     "pattern": "Price must be number.",
+                    "allowednumber": "Price must be a number in form of xxx OR xxx,xx OR xxx.xx",
                     "ngMin": "Price minimum is 0.",
                     "ngMax": "Price maximum is 100000."
                 },                                                                  

@@ -20,7 +20,7 @@ npm install
 mvn spring-boot:run
 ```
 
-You can run the application in production mode with `mvn -P prod spring-boot:run`
+You can run the application in **production mode** with `mvn -P prod spring-boot:run`
 
 ### Testing
 

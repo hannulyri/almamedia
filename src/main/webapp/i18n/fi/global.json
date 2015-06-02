@@ -31,6 +31,7 @@
                 "priceCents": {
                     "required": "Hinta on pakollinen.",
                     "pattern": "Hinnan tulee olla numero.",
+                    "allowednumber": "Numeron tulee olla muodossa xxx TAI xxx,xx TAI xxx.xx",
                     "ngMin": "Hinnan minimi on 0.",
                     "ngMax": "Hinnan yläraja on 100000."
                 },                                                                  

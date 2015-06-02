@@ -40,9 +40,10 @@ angular.module('almamediaApp')
             $scope.error = null;
 
             var tmpCents = String($scope.tmpPriceCents);
+            tmpCents = tmpCents.trim();
 	        tmpCents = tmpCents.replace(/[,]/g,'.');
 			tmpCents = Math10.round10(parseFloat(tmpCents), -2);
-			tmpCents = Math10.round10(parseFloat(tmpCents*100), -2);
+			tmpCents = Math10.round10(parseFloat(tmpCents*100), 0);
 			$scope.addMarketad.priceCents = tmpCents;
 
 			if ($scope.originalImage) {

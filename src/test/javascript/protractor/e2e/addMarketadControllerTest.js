@@ -6,9 +6,9 @@ describe("E2E: addMarketadController.js -", function() {
 	var d = new Date();
 	var currentTime = d.toLocaleTimeString("hhmmss").replace(':','').replace(':',''); 	  
 	
-	var priceInput = '148,00573632';
-	var priceOutput = '148,01';
-	var marketadUrl;
+	var priceInput = '148,05';
+	var priceOutput = '148,05';
+	var marketadUrl;	
 
 	describe('addmarketad -', function() {
 
@@ -40,26 +40,111 @@ describe("E2E: addMarketadController.js -", function() {
 
 		it('price', function() {
 			element(by.model('tmpPriceCents')).clear().sendKeys('100001');			
-			expect(element(by.css('[ng-show="form.priceCents.$error.ngMax"]')).isDisplayed()).toBe(true); 	
-			
+			expect(element(by.css('[ng-show="form.priceCents.$error.ngMax"]')).isDisplayed()).toBe(true); 				
 			element(by.model('tmpPriceCents')).clear().sendKeys('100000');			
-			expect(element(by.css('[ng-show="form.priceCents.$error.ngMax"]')).isDisplayed()).toBe(false); 				
-			
-			element(by.model('tmpPriceCents')).clear().sendKeys('-10');			
-			expect(element(by.css('[ng-show="form.priceCents.$error.ngMin"]')).isDisplayed()).toBe(true); 							
-			
-			element(by.model('tmpPriceCents')).clear().sendKeys('foo');			
-			expect(element(by.css('[ng-show="form.priceCents.$error.pattern"]')).isDisplayed()).toBe(true); 				
-			
-			element(by.model('tmpPriceCents')).clear().sendKeys('123.00573632');			
 			expect(element(by.css('[ng-show="form.priceCents.$error.ngMax"]')).isDisplayed()).toBe(false); 	
+			element(by.model('tmpPriceCents')).clear().sendKeys('99999');			
+			expect(element(by.css('[ng-show="form.priceCents.$error.ngMax"]')).isDisplayed()).toBe(false); 				
+
+			element(by.model('tmpPriceCents')).clear().sendKeys('1');			
 			expect(element(by.css('[ng-show="form.priceCents.$error.ngMin"]')).isDisplayed()).toBe(false); 							
-			expect(element(by.css('[ng-show="form.priceCents.$error.pattern"]')).isDisplayed()).toBe(false); 
+			element(by.model('tmpPriceCents')).clear().sendKeys('0');			
+			expect(element(by.css('[ng-show="form.priceCents.$error.ngMin"]')).isDisplayed()).toBe(false); 	
+			element(by.model('tmpPriceCents')).clear().sendKeys('-1');			
+			expect(element(by.css('[ng-show="form.priceCents.$error.ngMin"]')).isDisplayed()).toBe(true); 							
+
+			element(by.model('tmpPriceCents')).clear().sendKeys('foo');			
+			expect(element(by.css('[ng-show="form.priceCents.$error.allowednumber"]')).isDisplayed()).toBe(true); 				
+			
+			element(by.model('tmpPriceCents')).clear().sendKeys('100');								
+			expect(element(by.css('[ng-show="form.priceCents.$error.allowednumber"]')).isDisplayed()).toBe(false); 
+
+			element(by.model('tmpPriceCents')).clear().sendKeys('200.0');								
+			expect(element(by.css('[ng-show="form.priceCents.$error.allowednumber"]')).isDisplayed()).toBe(false); 			
+			element(by.model('tmpPriceCents')).clear().sendKeys('300.00');								
+			expect(element(by.css('[ng-show="form.priceCents.$error.allowednumber"]')).isDisplayed()).toBe(false); 			
+			element(by.model('tmpPriceCents')).clear().sendKeys('123.32');								
+			expect(element(by.css('[ng-show="form.priceCents.$error.allowednumber"]')).isDisplayed()).toBe(false); 
+			element(by.model('tmpPriceCents')).clear().sendKeys('224.00');								
+			expect(element(by.css('[ng-show="form.priceCents.$error.allowednumber"]')).isDisplayed()).toBe(false); 
+			element(by.model('tmpPriceCents')).clear().sendKeys('334.4');								
+			expect(element(by.css('[ng-show="form.priceCents.$error.allowednumber"]')).isDisplayed()).toBe(false); 
+			element(by.model('tmpPriceCents')).clear().sendKeys('434.');								
+			expect(element(by.css('[ng-show="form.priceCents.$error.allowednumber"]')).isDisplayed()).toBe(false); 
+
+			element(by.model('tmpPriceCents')).clear().sendKeys('150..0');								
+			expect(element(by.css('[ng-show="form.priceCents.$error.allowednumber"]')).isDisplayed()).toBe(true); 
+			element(by.model('tmpPriceCents')).clear().sendKeys('175.,0');								
+			expect(element(by.css('[ng-show="form.priceCents.$error.allowednumber"]')).isDisplayed()).toBe(true); 			
+			element(by.model('tmpPriceCents')).clear().sendKeys('634.000');								
+			expect(element(by.css('[ng-show="form.priceCents.$error.allowednumber"]')).isDisplayed()).toBe(true); 
+			element(by.model('tmpPriceCents')).clear().sendKeys('734.439');								
+			expect(element(by.css('[ng-show="form.priceCents.$error.allowednumber"]')).isDisplayed()).toBe(true); 
+			element(by.model('tmpPriceCents')).clear().sendKeys('123.00573632');								
+			expect(element(by.css('[ng-show="form.priceCents.$error.allowednumber"]')).isDisplayed()).toBe(true); 
+			element(by.model('tmpPriceCents')).clear().sendKeys('21.44.479');								
+			expect(element(by.css('[ng-show="form.priceCents.$error.allowednumber"]')).isDisplayed()).toBe(true); 
+			element(by.model('tmpPriceCents')).clear().sendKeys('21 4 4.47.9');								
+			expect(element(by.css('[ng-show="form.priceCents.$error.allowednumber"]')).isDisplayed()).toBe(true); 
+			element(by.model('tmpPriceCents')).clear().sendKeys('34432kef23.3');								
+			expect(element(by.css('[ng-show="form.priceCents.$error.allowednumber"]')).isDisplayed()).toBe(true); 
+			element(by.model('tmpPriceCents')).clear().sendKeys('3 300,45');								
+			expect(element(by.css('[ng-show="form.priceCents.$error.allowednumber"]')).isDisplayed()).toBe(true); 
+
+			element(by.model('tmpPriceCents')).clear().sendKeys('200,0');								
+			expect(element(by.css('[ng-show="form.priceCents.$error.allowednumber"]')).isDisplayed()).toBe(false); 			
+			element(by.model('tmpPriceCents')).clear().sendKeys('300,00');								
+			expect(element(by.css('[ng-show="form.priceCents.$error.allowednumber"]')).isDisplayed()).toBe(false); 		
+			element(by.model('tmpPriceCents')).clear().sendKeys('123,32');								
+			expect(element(by.css('[ng-show="form.priceCents.$error.allowednumber"]')).isDisplayed()).toBe(false); 
+			element(by.model('tmpPriceCents')).clear().sendKeys('224,00');								
+			expect(element(by.css('[ng-show="form.priceCents.$error.allowednumber"]')).isDisplayed()).toBe(false); 
+			element(by.model('tmpPriceCents')).clear().sendKeys('334,4');								
+			expect(element(by.css('[ng-show="form.priceCents.$error.allowednumber"]')).isDisplayed()).toBe(false); 
+			element(by.model('tmpPriceCents')).clear().sendKeys('434,');								
+			expect(element(by.css('[ng-show="form.priceCents.$error.allowednumber"]')).isDisplayed()).toBe(false); 
+
+			element(by.model('tmpPriceCents')).clear().sendKeys('150,,0');								
+			expect(element(by.css('[ng-show="form.priceCents.$error.allowednumber"]')).isDisplayed()).toBe(true); 
+			element(by.model('tmpPriceCents')).clear().sendKeys('175,.0');								
+			expect(element(by.css('[ng-show="form.priceCents.$error.allowednumber"]')).isDisplayed()).toBe(true); 			
+			element(by.model('tmpPriceCents')).clear().sendKeys('634,000');								
+			expect(element(by.css('[ng-show="form.priceCents.$error.allowednumber"]')).isDisplayed()).toBe(true); 
+			element(by.model('tmpPriceCents')).clear().sendKeys('734,439');								
+			expect(element(by.css('[ng-show="form.priceCents.$error.allowednumber"]')).isDisplayed()).toBe(true); 
+			element(by.model('tmpPriceCents')).clear().sendKeys('123.00573632');								
+			expect(element(by.css('[ng-show="form.priceCents.$error.allowednumber"]')).isDisplayed()).toBe(true); 
+			element(by.model('tmpPriceCents')).clear().sendKeys('21,44,479');								
+			expect(element(by.css('[ng-show="form.priceCents.$error.allowednumber"]')).isDisplayed()).toBe(true); 
+			element(by.model('tmpPriceCents')).clear().sendKeys('21 4 4,47,9');								
+			expect(element(by.css('[ng-show="form.priceCents.$error.allowednumber"]')).isDisplayed()).toBe(true); 
+			element(by.model('tmpPriceCents')).clear().sendKeys('34432kef23,3');								
+			expect(element(by.css('[ng-show="form.priceCents.$error.allowednumber"]')).isDisplayed()).toBe(true); 
+			element(by.model('tmpPriceCents')).clear().sendKeys('3 300,45');								
+			expect(element(by.css('[ng-show="form.priceCents.$error.allowednumber"]')).isDisplayed()).toBe(true); 			
+
+			element(by.model('tmpPriceCents')).clear().sendKeys('345,4332.5343');								
+			expect(element(by.css('[ng-show="form.priceCents.$error.allowednumber"]')).isDisplayed()).toBe(true); 
+			element(by.model('tmpPriceCents')).clear().sendKeys('12.34,54');								
+			expect(element(by.css('[ng-show="form.priceCents.$error.allowednumber"]')).isDisplayed()).toBe(true); 
 
 			element(by.model('tmpPriceCents')).clear().sendKeys(priceInput);							
 			expect(element(by.css('[ng-show="form.priceCents.$error.ngMax"]')).isDisplayed()).toBe(false); 	
 			expect(element(by.css('[ng-show="form.priceCents.$error.ngMin"]')).isDisplayed()).toBe(false); 							
-			expect(element(by.css('[ng-show="form.priceCents.$error.pattern"]')).isDisplayed()).toBe(false); 
+			expect(element(by.css('[ng-show="form.priceCents.$error.allowednumber"]')).isDisplayed()).toBe(false); 
+
+			element(by.model('tmpPriceCents')).clear().sendKeys('3 323.32');								
+			expect(element(by.css('[ng-show="form.priceCents.$error.allowednumber"]')).isDisplayed()).toBe(true); 	
+
+			element(by.model('tmpPriceCents')).clear().sendKeys(' 123,32 ');								
+			expect(element(by.css('[ng-show="form.priceCents.$error.allowednumber"]')).isDisplayed()).toBe(false); 			
+			element(by.model('tmpPriceCents')).clear().sendKeys(' 123,32');								
+			expect(element(by.css('[ng-show="form.priceCents.$error.allowednumber"]')).isDisplayed()).toBe(false); 			
+			element(by.model('tmpPriceCents')).clear().sendKeys('123,32 ');								
+			expect(element(by.css('[ng-show="form.priceCents.$error.allowednumber"]')).isDisplayed()).toBe(false); 									
+
+			element(by.model('tmpPriceCents')).clear().sendKeys(priceInput);								
+			expect(element(by.css('[ng-show="form.priceCents.$error.allowednumber"]')).isDisplayed()).toBe(false); 
 
 			expect(element(by.buttonText('Add')).isEnabled()).toBe(false);
 		});	
